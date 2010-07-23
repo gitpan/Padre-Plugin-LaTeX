@@ -1,26 +1,21 @@
----
-name: Padre-Plugin-LaTeX
-version: 0.01
-author:
-  - 'Zeno Gantner <ZENOG@cpan.org>'
-abstract: L<Padre> and LaTeX
-license: perl
-resources:
-  homepage: http://padre.perlide.org/
-  license: http://dev.perl.org/licenses/
-  repository: http://svn.perlide.org/padre/trunk/Padre-Plugin-LaTeX/
-requires:
-  Padre: 0.60
+--- #YAML:1.0
+name:               Padre-Plugin-LaTeX
+version:            0.02
+abstract:           ~
+author:  []
+license:            unknown
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
 build_requires:
-  Test::More: 0
-provides:
-  Padre::Document::LaTeX:
-    file: lib/Padre/Document/LaTeX.pm
-    version: 0.01
-  Padre::Plugin::LaTeX:
-    file: lib/Padre/Plugin/LaTeX.pm
-    version: 0.01
-generated_by: Module::Build version 0.33
+    ExtUtils::MakeMaker:  0
+requires:
+    Padre:  0.65
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.55_02
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4

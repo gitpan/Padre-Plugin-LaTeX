@@ -1,0 +1,31 @@
+TÒDO
+ - proper gettext support
+ - add icon for the plugin manager
+ - use LaTeX::Table for a table generation wizard: http://search.cpan.org/dist/LaTeX-Table/lib/LaTeX/Table.pm
+ - auto completion (keywords, commands/symbols, labels, BibTeX entries)
+ - create DVI, PS, PDF
+   - display errors
+   - jump to error location in file
+   - show missing references and syntax errors
+ - spell checking
+ - insertion of special characters (snippets/menu)
+ - insertion of tables, enumerations, etc. via snippets
+ - integration of detexify
+ - icons for the tool bar
+ - document outline
+   - command definitions
+   - include statements
+   - sections/chapter/appendix/abstract
+   - Beamer: frames
+   - tableofcontents, etc.
+ - syntax checking
+ - jump to command definition, bib item, reference label
+ - automatic insertion of '' and ``
+ - pretty printing
+ - Windows support
+ - settings dialog
+ - open corresponding BibTeX files
+ - open included/inserted files
+ - context-sensitive help
+ - check out LaTeX editors/frontends like LyX, vim, emacs for interesting
+   features
