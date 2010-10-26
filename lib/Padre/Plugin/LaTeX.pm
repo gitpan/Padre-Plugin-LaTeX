@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.04';
+  $Padre::Plugin::LaTeX::VERSION = '0.05';
 }
 
 # ABSTRACT: L<Padre> and LaTeX
@@ -12,7 +12,7 @@ use base 'Padre::Plugin';
 use Padre::Wx ();
 
 sub plugin_name {
-	'LaTeX';
+	Wx::gettext('LaTeX');
 }
 
 sub padre_interfaces {
@@ -46,7 +46,7 @@ sub show_about {
 
 	# Generate the About dialog
 	my $about = Wx::AboutDialogInfo->new;
-	$about->SetName('LaTeX Plug-in');
+	$about->SetName(Wx::gettext('LaTeX Plug-in'));
 	my $authors     = 'Zeno Gantner';
 	my $description = Wx::gettext( <<'END' );
 Copyright 2010 %s
@@ -173,7 +173,7 @@ Padre::Plugin::LaTeX - L<Padre> and LaTeX
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 DESCRIPTION
 

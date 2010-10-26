@@ -10,7 +10,7 @@ dist.ini
 lib/Padre/Document/LaTeX.pm
 lib/Padre/Document/LaTeX/Syntax.pm
 lib/Padre/Plugin/LaTeX.pm
-share/locale/Padre__Plugin__Alarm-ar.mo
+share/locale/Padre__Plugin__LaTeX-ar.mo
 share/locale/Padre__Plugin__LaTeX-de.mo
 share/locale/Padre__Plugin__LaTeX-it-it.mo
 t/00-compile.t
