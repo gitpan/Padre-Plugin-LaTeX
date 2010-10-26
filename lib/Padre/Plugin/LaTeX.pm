@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.03';
+  $Padre::Plugin::LaTeX::VERSION = '0.04';
 }
 
 # ABSTRACT: L<Padre> and LaTeX
@@ -173,7 +173,7 @@ Padre::Plugin::LaTeX - L<Padre> and LaTeX
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 DESCRIPTION
 
