@@ -1,11 +1,18 @@
 Revision history for Padre-Plugin-LaTeX
 
+0.03   2010.10.26
+        Syntax checking still crashes; will improve later (ZENOG)
+        Added Italian translation (SBLADIN)
+        Switched to Dist::Zilla (AZAWAWI)
+        Added Arabic translation (AZAWAWI)
+        Compatibility with latest Padre (AZAWAWI)
+
 0.02    2010-07-23
-	compatibility to newer Padre versions
+        Compatibility to newer Padre versions
         added preliminary i18n support (does not work correctly)
         new features: create+view PDF, run BibTeX
 
 0.01    2010-05-11
         First version, released on an unsuspecting world.
-	Only feature: toggle comments
+        Only feature: toggle comments
 

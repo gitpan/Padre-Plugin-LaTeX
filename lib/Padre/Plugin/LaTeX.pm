@@ -1,9 +1,12 @@
 package Padre::Plugin::LaTeX;
+BEGIN {
+  $Padre::Plugin::LaTeX::VERSION = '0.03';
+}
+
+# ABSTRACT: L<Padre> and LaTeX
 
 use warnings;
 use strict;
-
-our $VERSION = '0.02';
 
 use base 'Padre::Plugin';
 use Padre::Wx ();
@@ -13,12 +16,11 @@ sub plugin_name {
 }
 
 sub padre_interfaces {
-	'Padre::Plugin'   => 0.43,
-	'Padre::Document' => 0.43,
+	'Padre::Plugin' => 0.47, 'Padre::Document' => 0.47,;
 }
 
 sub registered_documents {
-	'application/x-latex' => 'Padre::Document::LaTeX',
+	'application/x-latex' => 'Padre::Document::LaTeX',;
 }
 
 sub menu_plugins_simple {
@@ -26,7 +28,7 @@ sub menu_plugins_simple {
 	return $self->plugin_name => [
 		Wx::gettext('About')             => sub { $self->show_about },
 		Wx::gettext('Create/Update PDF') => sub { $self->create_pdf },
-		Wx::gettext('View PDF')          => sub { $self->view_pdf   },
+		Wx::gettext('View PDF')          => sub { $self->view_pdf },
 		Wx::gettext('Run BibTeX')        => sub { $self->run_bibtex },
 
 		# 'Another Menu Entry' => sub { $self->about },
@@ -50,7 +52,7 @@ sub show_about {
 Copyright 2010 %s
 This plug-in is free software; you can redistribute it and/or modify it under the same terms as Padre.
 END
-	$about->SetDescription( sprintf($description, $authors) );
+	$about->SetDescription( sprintf( $description, $authors ) );
 
 	# Show the About dialog
 	Wx::AboutBox($about);
@@ -63,23 +65,23 @@ sub create_pdf {
 
 	my $pdflatex = 'pdflatex -interaction nonstopmode -file-line-error';
 
-        my $main     = $self->main;        
-        my $doc      = $main->current->document;
+	my $main     = $self->main;
+	my $doc      = $main->current->document;
 	my $tex_dir  = $doc->dirname;
 	my $tex_file = $doc->get_title;
 
 	if ( !$doc->isa('Padre::Document::LaTeX') ) {
-		$main->message(Wx::gettext('Creating PDF files is only supported for LaTeX documents.'));
+		$main->message( Wx::gettext('Creating PDF files is only supported for LaTeX documents.') );
 		return;
 	}
 
 	# TODO autosave (or ask)
-	
+
 	chdir $tex_dir;
 	my $output_text = `$pdflatex $tex_file`;
 	$self->_output($output_text);
-	
-	return;	
+
+	return;
 }
 
 sub run_bibtex {
@@ -87,51 +89,52 @@ sub run_bibtex {
 
 	my $bibtex = 'bibtex';
 
-        my $main     = $self->main;        
-        my $doc      = $main->current->document;
-        
-        my $tex_dir  = $doc->dirname;
+	my $main = $self->main;
+	my $doc  = $main->current->document;
+
+	my $tex_dir  = $doc->dirname;
 	my $aux_file = $doc->filename;
 	$aux_file =~ s/\.tex/.aux/;
 
 	if ( !$doc->isa('Padre::Document::LaTeX') ) {
-		$main->message(Wx::gettext('Running BibTeX is only supported for LaTeX documents.'));
+		$main->message( Wx::gettext('Running BibTeX is only supported for LaTeX documents.') );
 		return;
 	}
 
 	# TODO autosave (or ask)
-	
+
 	chdir $tex_dir;
 	my $output_text = `$bibtex $aux_file`;
 	$self->_output($output_text);
-	
-	return;	
+
+	return;
 }
 
 sub view_pdf {
 	my $self = shift;
 
-        my $main = $self->main;        
-        my $doc  = $main->current->document;
+	my $main = $self->main;
+	my $doc  = $main->current->document;
 
 	if ( !$doc->isa('Padre::Document::LaTeX') ) {
-		$main->message(Wx::gettext('Viewing PDF files is only supported for LaTeX documents.'));
+		$main->message( Wx::gettext('Viewing PDF files is only supported for LaTeX documents.') );
 		return;
 	}
 
 	# TODO find PDF viewer from system settings
 	my $pdf_viewer = 'evince';
-	
-	my $pdf_file = $doc->filename;	
+
+	my $pdf_file = $doc->filename;
 	$pdf_file =~ s/\.tex$/.pdf/;
-	
-	if (! -f $pdf_file) {
-		
+
+	if ( !-f $pdf_file ) {
+
 	}
-	
+
 	system "$pdf_viewer $pdf_file &";
+
 	# TODO check for errors
-	
+
 	return;
 }
 
@@ -142,6 +145,7 @@ sub editor_enable {
 	my $document = shift;
 
 	if ( $document->isa('Padre::Document::LaTeX') ) {
+
 		# TODO
 	}
 
@@ -151,7 +155,7 @@ sub editor_enable {
 sub _output {
 	my ( $self, $text ) = @_;
 	my $main = $self->main;
-	
+
 	$main->show_output(1);
 	$main->output->clear;
 	$main->output->AppendText($text);
@@ -159,21 +163,51 @@ sub _output {
 
 
 1;
-__END__
+
+
+=pod
 
 =head1 NAME
 
 Padre::Plugin::LaTeX - L<Padre> and LaTeX
 
-=head1 AUTHOR
+=head1 VERSION
 
-Zeno Gantner, C<< <ZENOG at cpan.org> >>
+version 0.03
 
-=head1 COPYRIGHT & LICENSE
+=head1 DESCRIPTION
 
-Copyright 2010 Zeno Gantner, all rights reserved.
+LaTeX support for Padre, the Perl Application Development and Refactoring
+Environment.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl 5.10.0 itself.
+Syntax highlighting for LaTeX is supported by Padre out of the box.
+This plug-in adds some more features to deal with LaTeX files.
+If you also want syntax highlighting for BibTeX files, try the Kate
+plugin.
+
+=head1 AUTHORS
+
+=over 4
+
+=item *
+
+Zeno Gantner <zenog@cpan.org>
+
+=item *
+
+Ahmad M. Zawawi <ahmad.zawawi@gmail.com>
+
+=back
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Zeno Gantner.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+
