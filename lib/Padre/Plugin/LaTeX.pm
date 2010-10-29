@@ -1,9 +1,9 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.06';
+  $Padre::Plugin::LaTeX::VERSION = '0.07';
 }
 
-# ABSTRACT: L<Padre> and LaTeX
+# ABSTRACT: LaTeX Support for Padre
 
 use warnings;
 use strict;
@@ -169,11 +169,11 @@ sub _output {
 
 =head1 NAME
 
-Padre::Plugin::LaTeX - L<Padre> and LaTeX
+Padre::Plugin::LaTeX - LaTeX Support for Padre
 
 =head1 VERSION
 
-version 0.06
+version 0.07
 
 =head1 DESCRIPTION
 
