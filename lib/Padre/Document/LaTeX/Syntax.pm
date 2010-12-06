@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX::Syntax;
 BEGIN {
-  $Padre::Document::LaTeX::Syntax::VERSION = '0.07';
+  $Padre::Document::LaTeX::Syntax::VERSION = '0.08';
 }
 
 # ABSTRACT: Latex document syntax-checking in the background
@@ -59,7 +59,7 @@ Padre::Document::LaTeX::Syntax - Latex document syntax-checking in the backgroun
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 SYNOPSIS
 
@@ -102,7 +102,7 @@ Ahmad M. Zawawi <ahmad.zawawi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Zeno Gantner.
+This software is copyright (c) 2010 by Zeno Gantner, Ahmad M. Zawawi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

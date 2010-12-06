@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.07';
+  $Padre::Plugin::LaTeX::VERSION = '0.08';
 }
 
 # ABSTRACT: LaTeX Support for Padre
@@ -20,7 +20,8 @@ sub padre_interfaces {
 }
 
 sub registered_documents {
-	'application/x-latex' => 'Padre::Document::LaTeX',;
+	'application/x-latex'  => 'Padre::Document::LaTeX',
+	'application/x-bibtex' => 'Padre::Document::BibTeX',;
 }
 
 sub menu_plugins_simple {
@@ -47,8 +48,12 @@ sub show_about {
 	# Generate the About dialog
 	my $about = Wx::AboutDialogInfo->new;
 	$about->SetName(Wx::gettext('LaTeX Plug-in'));
-	my $authors     = 'Zeno Gantner';
+	my $authors     = 'Zeno Gantner, Ahmad M. Zawawi';
 	my $description = Wx::gettext( <<'END' );
+LaTeX support for Padre
+
+For syntax highlighting of BibTeX files install the Kate plugin: Padre::Plugin::Kate
+
 Copyright 2010 %s
 This plug-in is free software; you can redistribute it and/or modify it under the same terms as Padre.
 END
@@ -75,7 +80,7 @@ sub create_pdf {
 		return;
 	}
 
-	# TODO autosave (or ask)
+	# TODO autosave or ask or use temporary file
 
 	chdir $tex_dir;
 	my $output_text = `$pdflatex $tex_file`;
@@ -173,7 +178,7 @@ Padre::Plugin::LaTeX - LaTeX Support for Padre
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 DESCRIPTION
 
@@ -201,7 +206,7 @@ Ahmad M. Zawawi <ahmad.zawawi@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Zeno Gantner.
+This software is copyright (c) 2010 by Zeno Gantner, Ahmad M. Zawawi.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

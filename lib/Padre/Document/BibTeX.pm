@@ -1,9 +1,9 @@
-package Padre::Document::LaTeX;
+package Padre::Document::BibTeX;
 BEGIN {
-  $Padre::Document::LaTeX::VERSION = '0.08';
+  $Padre::Document::BibTeX::VERSION = '0.08';
 }
 
-# ABSTRACT: LaTeX support document for Padre
+# ABSTRACT: BibTeX support document for Padre
 
 use 5.008;
 use strict;
@@ -22,7 +22,7 @@ sub task_outline {
 }
 
 sub task_syntax {
-	return 'Padre::Document::LaTeX::Syntax';
+	return '';
 }
 
 sub comment_lines_str { return '%' }
@@ -34,7 +34,7 @@ __END__
 
 =head1 NAME
 
-Padre::Document::LaTeX - LaTeX support document for Padre
+Padre::Document::BibTeX - BibTeX support document for Padre
 
 =head1 VERSION
 
