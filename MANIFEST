@@ -15,8 +15,13 @@ share/locale/Padre__Plugin__LaTeX-ar.mo
 share/locale/Padre__Plugin__LaTeX-ar.po
 share/locale/Padre__Plugin__LaTeX-de.mo
 share/locale/Padre__Plugin__LaTeX-de.po
+share/locale/Padre__Plugin__LaTeX-de.po.new
 share/locale/Padre__Plugin__LaTeX-it-it.mo
 share/locale/Padre__Plugin__LaTeX-it-it.po
+share/locale/Padre__Plugin__LaTeX-nl-nl.mo
+share/locale/Padre__Plugin__LaTeX-nl-nl.po
+share/locale/Padre__Plugin__LaTeX-tr.mo
+share/locale/Padre__Plugin__LaTeX-tr.po
 share/locale/messages.pot
 t/00-compile.t
 t/release-check-changes.t

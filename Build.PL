@@ -14,13 +14,13 @@ my %module_build_args = (
   'configure_requires' => {
     'Module::Build' => '0.3601'
   },
-  'dist_abstract' => 'LaTeX Support for Padre',
+  'dist_abstract' => 'LaTeX support for Padre',
   'dist_author' => [
     'Zeno Gantner <zenog@cpan.org>',
     'Ahmad M. Zawawi <ahmad.zawawi@gmail.com>'
   ],
   'dist_name' => 'Padre-Plugin-LaTeX',
-  'dist_version' => '0.08',
+  'dist_version' => '0.09',
   'license' => 'perl',
   'module_name' => 'Padre::Plugin::LaTeX',
   'recommends' => {},

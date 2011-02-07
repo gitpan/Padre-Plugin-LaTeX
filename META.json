@@ -1,5 +1,5 @@
 {
-   "abstract" : "LaTeX Support for Padre",
+   "abstract" : "LaTeX support for Padre",
    "author" : [
       "Zeno Gantner <zenog@cpan.org>",
       "Ahmad M. Zawawi <ahmad.zawawi@gmail.com>"
@@ -44,7 +44,7 @@
          "url" : "http://svn.perlide.org/padre/trunk/Padre-Plugin-LaTeX/"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -219,6 +219,21 @@
                }
             },
             "name" : "Prereqs",
+            "version" : "4.102345"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::TestRelease",
+            "name" : "TestRelease",
+            "version" : "4.102345"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::ConfirmRelease",
+            "name" : "ConfirmRelease",
+            "version" : "4.102345"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "UploadToCPAN",
             "version" : "4.102345"
          },
          {
