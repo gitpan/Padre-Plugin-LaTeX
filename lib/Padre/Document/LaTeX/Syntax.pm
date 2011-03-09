@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX::Syntax;
 BEGIN {
-  $Padre::Document::LaTeX::Syntax::VERSION = '0.09';
+  $Padre::Document::LaTeX::Syntax::VERSION = '0.10';
 }
 
 # ABSTRACT: Latex document syntax-checking in the background
@@ -14,10 +14,46 @@ sub new {
 	my $class = shift;
 
 	my %args = @_;
-
 	my $self = $class->SUPER::new(%args);
 
 	return $self;
+}
+
+sub _call_pdflatex {
+	my ( $self, $text ) = @_;
+
+	my $project_dir = $self->{project};
+
+	# create temporary directory and LaTeX file
+	require File::Temp;
+	my $tempdir = File::Temp::tempdir( 'Padre-Document-LaTeX-Syntax-XXXXXX', TMPDIR => 1 );
+	my $file = File::Temp->new(
+		TEMPLATE => 'XXXXXX',
+		UNLINK   => 1, DIR => $project_dir
+	);
+
+	# write text to temporary file
+	my $filename = $file->filename;
+	binmode( $file, ':utf8' );
+	$file->print($text);
+	$file->close;
+
+	# run pdflatex
+	my $pdflatex_command =
+		"cd $project_dir; pdflatex -file-line-error -draftmode -interaction nonstopmode -output-directory $tempdir $filename";
+
+	#warn "$pdflatex_command\n";
+	my $output = `$pdflatex_command`;
+
+	eval {
+
+		# clean up
+		require File::Path;
+		File::Path::remove_tree($tempdir);
+	};
+	warn "$@\n" if $@;
+
+	return $output;
 }
 
 
@@ -25,13 +61,9 @@ sub syntax {
 	my $self = shift;
 	my $text = shift;
 
-	my $filename    = $self->{filename};
-	my $project_dir = $self->{project};
+	my $output = $self->_call_pdflatex($text);
 
-	my $pdflatex_command = "cd $project_dir; pdflatex -file-line-error -draftmode -interaction nonstopmode $filename";
-	my $output           = `$pdflatex_command`;
-
-	warn "Complete output: >>>$output<<<\n";
+	#warn "OUTPUT: $output\n";
 
 	my @lines = split /\n/, $output;
 	my @issues = ();
@@ -44,26 +76,27 @@ sub syntax {
 		my $line_no   = $1;
 		my $error_msg = $2;
 
-		warn "line: '$line'\n";
-
-		while ( ++$i < scalar @lines && $lines[$i] !~ /^\[\d+\]/ ) {
+		while ( ++$i < scalar @lines && $lines[$i] !~ /^\s*$/ && $lines[$i] !~ /<recently read>/ ) {
 			$lines[$i] =~ s/^l\.\d+ / /;
 			$error_msg .= $lines[$i];
 		}
 
 		$error_msg =~ s/\s+/ /g;
 
-		warn "$line_no: '$error_msg'\n";
+		#warn "error msg '$error_msg'\n";
 
 		my %issue = (
 			line    => $line_no,
-			file    => $filename,
+			file    => $self->{filename},
 			type    => 'F',
 			message => $error_msg,
 		);
 
 		push @issues, \%issue;
 	}
+	my $num_issues = scalar @issues;
+
+	#warn "pdflatex output parsing: found $num_issues issues.\n";
 
 	return \@issues;
 }
@@ -80,7 +113,7 @@ Padre::Document::LaTeX::Syntax - Latex document syntax-checking in the backgroun
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,11 @@
-TÒDO
- - BibTeX syntax highlighting
- - add icon for the plugin manager
+TODO
+ - syntax checking
+   - BibTeX support
+   - explanation of errors (like for Perl 5)
+   - catch "! Emergency stop."
+   - also display warnings
+   - get rid of some duplicate errors
+ - completion: add brackets to commands that always need them (e.g. \frametitle{...})
  - create DVI, PS, PDF
    - display errors
    - jump to error location in file
@@ -9,6 +14,7 @@ TÒDO
  - insertion of special characters (menu)
  - insertion of tables, enumerations, etc. via snippets
  - special treatment of tabular environment: transpose and swap columns or rows
+   - compare http://www.ctan.org/tex-archive/help/Catalogue/entries/latable.html
  - document outline
    - sections/chapter/appendix/abstract
    - command definitions
@@ -23,7 +29,8 @@ TÒDO
  - Windows support
  - settings dialog
  - open corresponding BibTeX files
- - tool bar integration
+ - tool bar integration (or own toolbar)
+   could use some icons from here: http://famfamfam.com/lab/icons/silk/
  - open included/inserted files
  - have some kind of notion of LaTeX projects (one directory ...)
  - use LaTeX::Table for a table generation wizard: http://search.cpan.org/dist/LaTeX-Table/lib/LaTeX/Table.pm

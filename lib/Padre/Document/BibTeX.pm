@@ -1,6 +1,6 @@
 package Padre::Document::BibTeX;
 BEGIN {
-  $Padre::Document::BibTeX::VERSION = '0.09';
+  $Padre::Document::BibTeX::VERSION = '0.10';
 }
 
 # ABSTRACT: BibTeX support document for Padre
@@ -173,7 +173,7 @@ Padre::Document::BibTeX - BibTeX support document for Padre
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 AUTHORS
 

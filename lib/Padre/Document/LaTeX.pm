@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX;
 BEGIN {
-  $Padre::Document::LaTeX::VERSION = '0.09';
+  $Padre::Document::LaTeX::VERSION = '0.10';
 }
 
 # ABSTRACT: LaTeX document support for Padre
@@ -39,7 +39,6 @@ sub get_command {
 	$filename = $self->get_title;
 
 	my $command = "pdflatex -interaction nonstopmode -file-line-error $filename";
-	warn "$command\n";
 	return $command;
 }
 
@@ -304,7 +303,7 @@ Padre::Document::LaTeX - LaTeX document support for Padre
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 AUTHORS
 
