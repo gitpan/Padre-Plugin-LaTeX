@@ -1,6 +1,6 @@
 package Padre::Document::BibTeX;
 BEGIN {
-  $Padre::Document::BibTeX::VERSION = '0.10';
+  $Padre::Document::BibTeX::VERSION = '0.11';
 }
 
 # ABSTRACT: BibTeX support document for Padre
@@ -43,7 +43,7 @@ sub autocomplete {
 	my $event = shift;
 
 	my $config    = Padre->ide->config;
-	my $min_chars = $config->perl_autocomplete_min_chars; # TODO rename this config option?
+	my $min_chars = $config->lang_perl5_autocomplete_min_chars; # TODO rename this config option?
 
 	my $editor = $self->editor;
 	my $pos    = $editor->GetCurrentPos;
@@ -173,7 +173,7 @@ Padre::Document::BibTeX - BibTeX support document for Padre
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 AUTHORS
 

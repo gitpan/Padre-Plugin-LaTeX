@@ -1,12 +1,13 @@
 package Padre::Document::LaTeX::Syntax;
 BEGIN {
-  $Padre::Document::LaTeX::Syntax::VERSION = '0.10';
+  $Padre::Document::LaTeX::Syntax::VERSION = '0.11';
 }
 
 # ABSTRACT: Latex document syntax-checking in the background
 
 use strict;
 use warnings;
+use Padre::Task::Syntax ();
 
 our @ISA = 'Padre::Task::Syntax';
 
@@ -113,7 +114,7 @@ Padre::Document::LaTeX::Syntax - Latex document syntax-checking in the backgroun
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 

@@ -9,6 +9,7 @@ TODO
 dist.ini
 lib/Padre/Document/BibTeX.pm
 lib/Padre/Document/LaTeX.pm
+lib/Padre/Document/LaTeX/Outline.pm
 lib/Padre/Document/LaTeX/Syntax.pm
 lib/Padre/Plugin/LaTeX.pm
 share/icons/README
@@ -27,6 +28,8 @@ share/locale/Padre__Plugin__LaTeX-it-it.mo
 share/locale/Padre__Plugin__LaTeX-it-it.po
 share/locale/Padre__Plugin__LaTeX-nl-nl.mo
 share/locale/Padre__Plugin__LaTeX-nl-nl.po
+share/locale/Padre__Plugin__LaTeX-pt-br.mo
+share/locale/Padre__Plugin__LaTeX-pt-br.po
 share/locale/Padre__Plugin__LaTeX-tr.mo
 share/locale/Padre__Plugin__LaTeX-tr.po
 share/locale/messages.pot

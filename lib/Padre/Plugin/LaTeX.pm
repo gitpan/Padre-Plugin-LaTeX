@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.10';
+  $Padre::Plugin::LaTeX::VERSION = '0.11';
 }
 
 # ABSTRACT: LaTeX support for Padre
@@ -207,7 +207,7 @@ Padre::Plugin::LaTeX - LaTeX support for Padre
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 DESCRIPTION
 

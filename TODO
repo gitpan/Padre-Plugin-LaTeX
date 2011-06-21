@@ -1,10 +1,18 @@
 TODO
+ - BibTeX:
+   - better support for BibTeX entry completion (cite and friends, show BibTeX entries to complete ...)
+   - automagic BibTeX-ification
+   - automagic entry cleaning
+   - exchange data with DBLP, CiteULike, Zotero, Bibsonomy ...
+   - BibLaTeX support
+     - open corresponding BibTeX files
  - syntax checking
    - BibTeX support
    - explanation of errors (like for Perl 5)
    - catch "! Emergency stop."
    - also display warnings
    - get rid of some duplicate errors
+ - TODO recognizer support
  - completion: add brackets to commands that always need them (e.g. \frametitle{...})
  - create DVI, PS, PDF
    - display errors
@@ -28,7 +36,6 @@ TODO
  - pretty printing
  - Windows support
  - settings dialog
- - open corresponding BibTeX files
  - tool bar integration (or own toolbar)
    could use some icons from here: http://famfamfam.com/lab/icons/silk/
  - open included/inserted files
@@ -37,7 +44,6 @@ TODO
  - context-sensitive help
  - check out LaTeX editors/frontends like LyX, vim, emacs, gedit for interesting
    features
- - BibLaTeX support
  - other tools to possibly use
    - latexmk (run LaTeX the correct number of times)
    - LaTeX::Encode, TeX::Encode

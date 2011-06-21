@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX;
 BEGIN {
-  $Padre::Document::LaTeX::VERSION = '0.10';
+  $Padre::Document::LaTeX::VERSION = '0.11';
 }
 
 # ABSTRACT: LaTeX document support for Padre
@@ -8,7 +8,6 @@ BEGIN {
 use 5.008;
 use strict;
 use warnings;
-use Carp            ();
 use Padre::Document ();
 
 our @ISA = 'Padre::Document';
@@ -18,7 +17,7 @@ sub task_functions {
 }
 
 sub task_outline {
-	return '';
+	return 'Padre::Document::LaTeX::Outline';
 }
 
 sub task_syntax {
@@ -115,12 +114,13 @@ my @latex_packages = qw/
 # TODO know includegraphics etc. options (see CSS completion support for ideas)
 # TODO units for height, width, vspace, etc.
 # TODO for bibliography, insert, include, includegraphics, usepackage: check for available files ...
+# TODO also offer \begin w/o \end
 sub autocomplete {
 	my $self  = shift;
 	my $event = shift;
 
 	my $config    = Padre->ide->config;
-	my $min_chars = $config->perl_autocomplete_min_chars; # TODO rename this config option?
+	my $min_chars = $config->lang_perl5_autocomplete_min_chars; # TODO rename this config option/have our own?
 
 	my $editor = $self->editor;
 	my $pos    = $editor->GetCurrentPos;
@@ -165,7 +165,7 @@ sub autocomplete {
 		# TODO end the currently open environment
 
 		my @candidates = $begin_or_end eq 'begin'
-			? map { $add_bracket . $_ . "}\n\\end{$_}" } @latex_environments # TODO make configurable
+			? map { $add_bracket . $_ . "}\n\\end{$_}", $add_bracket . $_ . '}' } @latex_environments # TODO make configurable
 			: map { $add_bracket . $_ . '}' } @latex_environments;
 		return $self->find_completions( $env_prefix, $nextchar, @candidates );
 	}
@@ -303,7 +303,7 @@ Padre::Document::LaTeX - LaTeX document support for Padre
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 AUTHORS
 

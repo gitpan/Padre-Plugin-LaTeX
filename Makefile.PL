@@ -26,9 +26,9 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'Padre::Plugin::LaTeX',
   'PREREQ_PM' => {
-    'Padre' => '0.65'
+    'Padre' => '0.85'
   },
-  'VERSION' => '0.10',
+  'VERSION' => '0.11',
   'test' => {
     'TESTS' => 't/*.t'
   }
