@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX::Outline;
 BEGIN {
-  $Padre::Document::LaTeX::Outline::VERSION = '0.12';
+  $Padre::Document::LaTeX::Outline::VERSION = '0.13';
 }
 
 # ABSTRACT: LaTeX document support for Padre
@@ -41,7 +41,7 @@ Padre::Document::LaTeX::Outline - LaTeX document support for Padre
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 AUTHORS
 

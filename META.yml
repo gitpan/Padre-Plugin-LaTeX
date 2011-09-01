@@ -17,11 +17,11 @@ meta-spec:
   version: 1.4
 name: Padre-Plugin-LaTeX
 requires:
-  Padre: 0.85
+  Padre: 0.89
 resources:
   homepage: http://padre.perlide.org
   repository: http://svn.perlide.org/padre/trunk/Padre-Plugin-LaTeX/
-version: 0.12
+version: 0.13
 x_Dist_Zilla:
   plugins:
     -

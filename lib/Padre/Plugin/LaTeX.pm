@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.12';
+  $Padre::Plugin::LaTeX::VERSION = '0.13';
 }
 
 # ABSTRACT: LaTeX support for Padre
@@ -189,7 +189,6 @@ sub launch_pdf_viewer {
 	return;
 }
 
-
 sub editor_enable {
 	my $self     = shift;
 	my $editor   = shift;
@@ -226,7 +225,7 @@ Padre::Plugin::LaTeX - LaTeX support for Padre
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 DESCRIPTION
 

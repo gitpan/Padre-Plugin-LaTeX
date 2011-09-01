@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX;
 BEGIN {
-  $Padre::Document::LaTeX::VERSION = '0.12';
+  $Padre::Document::LaTeX::VERSION = '0.13';
 }
 
 # ABSTRACT: LaTeX document support for Padre
@@ -348,7 +348,7 @@ Padre::Document::LaTeX - LaTeX document support for Padre
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 AUTHORS
 
