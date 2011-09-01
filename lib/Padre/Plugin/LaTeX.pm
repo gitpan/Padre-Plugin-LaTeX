@@ -1,6 +1,6 @@
 package Padre::Plugin::LaTeX;
 BEGIN {
-  $Padre::Plugin::LaTeX::VERSION = '0.11';
+  $Padre::Plugin::LaTeX::VERSION = '0.12';
 }
 
 # ABSTRACT: LaTeX support for Padre
@@ -18,11 +18,15 @@ sub plugin_name {
 }
 
 sub padre_interfaces {
-	'Padre::Plugin' => 0.81, 'Padre::Document' => 0.81;
+	'Padre::Plugin'   => 0.89,
+	'Padre::Document' => 0.89,
+	'Padre::Wx::Main' => 0.89;
 }
 
 sub registered_documents {
-	'application/x-latex' => 'Padre::Document::LaTeX', 'application/x-bibtex' => 'Padre::Document::BibTeX',;
+	'application/x-latex' => 'Padre::Document::LaTeX',
+	'application/x-bibtex' => 'Padre::Document::BibTeX',
+	;
 }
 
 sub plugin_icon {
@@ -51,6 +55,21 @@ sub menu_plugins_simple {
 	];
 }
 
+sub plugin_disable {
+	my $self = shift;
+
+	if ( $self->{about_box} ) {
+		$self->{about_box}->Destroy;
+		$self->{about_box} = undef;
+ 	}
+
+	#require Class::Unload;
+	#Class::Unload->unload('Padre::Document::LaTeX');
+	#Class::Unload->unload('Padre::Document::BibTeX');
+
+	return 1;
+}
+
 #####################################################################
 # Custom Methods
 
@@ -58,8 +77,8 @@ sub show_about {
 	my $self = shift;
 
 	# Generate the About dialog
-	my $about = Wx::AboutDialogInfo->new;
-	$about->SetName( Wx::gettext('LaTeX Plug-in') );
+	my $self->{about} = Wx::AboutDialogInfo->new;
+	$self->{about}->SetName( Wx::gettext('LaTeX Plug-in') );
 	my $authors     = 'Zeno Gantner, Ahmad M. Zawawi';
 	my $description = Wx::gettext( <<'END' );
 LaTeX support for Padre
@@ -69,10 +88,10 @@ For syntax highlighting of BibTeX files install the Kate plugin: Padre::Plugin::
 Copyright 2010, 2011 %s
 This plug-in is free software; you can redistribute it and/or modify it under the same terms as Padre.
 END
-	$about->SetDescription( sprintf( $description, $authors ) );
+	$self->{about}->SetDescription( sprintf( $description, $authors ) );
 
 	# Show the About dialog
-	Wx::AboutBox($about);
+	Wx::AboutBox($self->{about});
 
 	return;
 }
@@ -207,7 +226,7 @@ Padre::Plugin::LaTeX - LaTeX support for Padre
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 DESCRIPTION
 

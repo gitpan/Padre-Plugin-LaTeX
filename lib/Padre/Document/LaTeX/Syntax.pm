@@ -1,6 +1,6 @@
 package Padre::Document::LaTeX::Syntax;
 BEGIN {
-  $Padre::Document::LaTeX::Syntax::VERSION = '0.11';
+  $Padre::Document::LaTeX::Syntax::VERSION = '0.12';
 }
 
 # ABSTRACT: Latex document syntax-checking in the background
@@ -114,7 +114,7 @@ Padre::Document::LaTeX::Syntax - Latex document syntax-checking in the backgroun
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
